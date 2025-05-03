@@ -49,7 +49,7 @@ export default function Login() {
           <div>
             <label htmlFor="email" className="block text-[#A9746E] font-medium mb-2">Correo</label>
             {/* Div contenedor para el icono y el input */}
-            <div className="flex items-center border rounded-xl px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
+            <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
               <FiMail className="text-[#A9746E] mr-2 flex-shrink-0" /> {/* Icono Email */}
               <input
                 type="email"
@@ -67,7 +67,7 @@ export default function Login() {
           <div>
             <label htmlFor="password" className="block text-[#A9746E] font-medium mb-2">Contraseña</label>
             {/* Div contenedor para el icono y el input */}
-            <div className="flex items-center border rounded-xl px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
+            <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
               <FiLock className="text-[#A9746E] mr-2 flex-shrink-0" /> {/* Icono Contraseña */}
               <input
                 type="password"
@@ -85,9 +85,9 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 bg-[#FFA79C] hover:bg-[#FFA79C]/40 text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`w-full rounded-full py-3 bg-[#FFA79C] hover:bg-[#FFA79C]/40 text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            {loading ? "Ingresando..." : "Iniciar Seción"}
+            {loading ? "Ingresando..." : "Iniciar Sesión"}
           </button>
 
           {/* Mensaje de estado/error */}
@@ -101,7 +101,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 bg-[#FFA79C]/40 hover:bg-[#FFA79C] text-[#FFA79C]  hover:text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}>
+            className={`w-full rounded-full py-3 bg-[#FFA79C]/40 hover:bg-[#FFA79C] text-[#FFA79C]  hover:text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}>
             {loading ? "Ingresando..." : "Crear Cuenta"}
 
           </button>
