@@ -15,7 +15,6 @@ export default function Login() {
     setLoading(true);
     setMensaje("");
 
-    // Intento de inicio de sesión con Supabase
     const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     setLoading(false);
