@@ -1,22 +1,53 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/header_logo.svg";
+
 export default function Layout({ children }) {
-return (
-<div className="flex flex-col min-h-screen">
-<header className="bg-blue-600 text-white p-4 flex justify-between">
-<div className="text-xl font-bold">Mi Sistema</div>
-<nav className="flex gap-4">
-<Link to="/dashboard">Inicio</Link>
-<Link to="/participantes">Participantes</Link>
-<Link to="/carreras">Carreras</Link>
-<Link to="/donaciones">Donaciones</Link>
-</nav>
-</header>
-<main className="flex-grow p-6 bg-gradient-to-b from-purple-200 to-blue-200">
-{children}
-</main>
-<footer className="bg-gray-800 text-white text-center p-4">
-M.Sc. Ing. Juan Pablo Cruz Ovando \u00a9 2025
-</footer>
-</div>
-);
+  return (
+
+    <div className="flex flex-col font-sans text-[#A9746E] min-h-screen bg-[#FFF5E1]">
+
+      <header className="bg-[#FFF5E1] w-full py-4 px-6 flex flex-col items-center relative  shadow-sm">
+
+        <div className="absolute right-6 top-1/2 transform -translate-y-1/2 flex gap-2">
+          <Link to="/" className="rounded-full py-2 px-4 bg-[#ffb4a3] hover:bg-[#fad1c3]/80 text-[#FFF5E1] font-semibold transition duration-300">
+            Iniciar Sesión
+          </Link>
+
+          <Link to="/" className="rounded-full py-2 px-4 bg-[#fad1c3] hover:bg-[#ffb4a3] text-[#A9746E] hover:text-[#8d5a53] font-semibold transition duration-300">
+            Crear cuenta
+          </Link>
+        </div>
+
+
+        <div className="flex flex-col items-center pt-2 pb-1">
+          <img src={logo} alt="Logo CutieCup" className=" h-12 md:h-16 "/>
+        </div>
+      </header>
+
+
+      <main className="flex-grow flex justify-center p-4 bg-[#ffffff]">
+        {children}
+      </main>
+
+      <footer className="
+        bg-[#FFF5E1] text-[#A9746E] w-full py-2 px-4">
+
+        <div className="flex flex-wrap justify-between items-center mx-auto gap-x-6 gap-y-2 mb-4 text-lg font-medium max-w-7xl">
+          <Link to="/" className="hover:text-[#8d5a53]">Budines</Link>
+          <span className="text-[#C2998F] text-3xl hidden sm:inline">∘</span>
+          <Link to="/" className="hover:text-[#8d5a53]">Tortas</Link>
+          <span className="text-[#C2998F] text-3xl hidden sm:inline">∘</span>
+          <Link to="/" className="hover:text-[#8d5a53]">Galletas</Link>
+          <span className="text-[#C2998F] text-3xl hidden sm:inline">∘</span>
+          <Link to="/" className="hover:text-[#8d5a53]">Helados</Link>
+          <span className="text-[#C2998F] text-3xl hidden sm:inline">∘</span>
+          <Link to="/" className="hover:text-[#8d5a53]">Queques</Link>
+        </div>
+
+        <div className=" flex flex-col items-center mt-4 ">
+          <img src={logo}  alt="Logo CutieCup pie de página" className="h-10 md:h-12 opacity-70 mb-4 mt-4"/>
+        </div>
+      </footer>
+    </div>
+  );
 }

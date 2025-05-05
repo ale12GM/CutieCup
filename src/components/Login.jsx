@@ -32,11 +32,9 @@ export default function Login() {
   // --- JSX con estilos de Tailwind y los iconos ---
   return (
     // Contenedor principal con fondo degradado y centrado
-    <div className="min-h-screen bg-white via-indigo-100 to-blue-200 flex items-center justify-center p-4">
-
+    <div className="bg-white flex items-center justify-center p-4 h-full">
       {/* Tarjeta del formulario */}
       <div className="bg-[#FFF5E1] px-8 sm:px-10 py-10 sm:py-12 rounded-xl shadow-xl w-full max-w-md">
-
         {/* Título */}
         <h1 className="text-3xl font-extrabold text-center text-[#A9746E] mb-8">
           Bienvenido
