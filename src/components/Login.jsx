@@ -10,6 +10,10 @@ export default function Login() {
   const [mensaje, setMensaje] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const CreateAccount =()=>{
+    setTimeout(()=>navigate("Create_Account"),1000)
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -25,16 +29,18 @@ export default function Login() {
       setMensaje("❌ Usuario o contraseña incorrectos");
     } else {
       setMensaje("✅ Acceso concedido. Redirigiendo...");
-      setTimeout(() => navigate("/dashboard"), 1000);
+      setTimeout(() => navigate("CategoriasResetas"), 1000);
     }
   };
 
   // --- JSX con estilos de Tailwind y los iconos ---
   return (
     // Contenedor principal con fondo degradado y centrado
-    <div className="bg-white flex items-center justify-center p-4 h-full">
+    <div className="min-h-screen  bg-white via-indigo-100 to-blue-200 flex items-center justify-center p-4">
+
       {/* Tarjeta del formulario */}
-      <div className="bg-[#FFF5E1] px-8 sm:px-10 py-10 sm:py-12 rounded-xl shadow-xl w-full max-w-md">
+      <div className="bg-[#FFF5E1] px-8 sm:px-10 py-10 sm:py-12 rounded-[30px] shadow-xl w-full max-w-md">
+
         {/* Título */}
         <h1 className="text-3xl font-extrabold text-center text-[#A9746E] mb-8">
           Bienvenido
@@ -47,7 +53,7 @@ export default function Login() {
           <div>
             <label htmlFor="email" className="block text-[#A9746E] font-medium mb-2">Correo</label>
             {/* Div contenedor para el icono y el input */}
-            <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
+            <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-[#A9746E] transition duration-200">
               <FiMail className="text-[#A9746E] mr-2 flex-shrink-0" /> {/* Icono Email */}
               <input
                 type="email"
@@ -62,10 +68,9 @@ export default function Login() {
           </div>
 
           {/* Grupo Contraseña con Icono */}
-          <div>
-            <label htmlFor="password" className="block text-[#A9746E] font-medium mb-2">Contraseña</label>
+          <label htmlFor="password" className="block text-[#A9746E] font-medium mb-2">Contraseña</label>
+          <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-[#A9746E] transition duration-200">
             {/* Div contenedor para el icono y el input */}
-            <div className="flex items-center border rounded-full px-3 py-2 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500 transition duration-200">
               <FiLock className="text-[#A9746E] mr-2 flex-shrink-0" /> {/* Icono Contraseña */}
               <input
                 type="password"
@@ -76,17 +81,17 @@ export default function Login() {
                 required
                 className="w-full bg-transparent outline-none text-[#A9746E] placeholder-[#A9746E]" // Input transparente hereda bg del div
               />
-            </div>
           </div>
 
           {/* Botón de envío */}
+          <div>
           <button
             type="submit"
             disabled={loading}
-            className={`w-full rounded-full py-3 bg-[#FFA79C] hover:bg-[#FFA79C]/40 text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`w-full rounded-full py-3 bg-[#FFA79C] hover:bg-[#FFA79C]/40 text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-full transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             {loading ? "Ingresando..." : "Iniciar Sesión"}
-          </button>
+          </button></div>
 
           {/* Mensaje de estado/error */}
           {mensaje && (
@@ -95,11 +100,11 @@ export default function Login() {
             </div>
           )}
         </form>
-        <div className='py-4'>
+        <div className='py-4 ' onClick={CreateAccount}>
           <button
             type="submit"
             disabled={loading}
-            className={`w-full rounded-full py-3 bg-[#FFA79C]/40 hover:bg-[#FFA79C] text-[#FFA79C]  hover:text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-lg transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}>
+            className={`w-full  py-3 bg-[#FFA79C]/40 hover:bg-[#FFA79C] text-[#FFA79C]  hover:text-[#FFF5E1] hover:text-[#FFA79C] font-semibold rounded-full transition duration-300 ease-in-out ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}>
             {loading ? "Ingresando..." : "Crear Cuenta"}
 
           </button>
