@@ -2,6 +2,8 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 import budinB from "../assets/imagesRecetas/budinBanana.jpg";
 import budinC from "../assets/imagesRecetas/budinChocolate.jpg";
@@ -122,10 +124,8 @@ export default function Recetas() {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {recetas.map((receta, index) => (
-          <div
-            key={index}
-            className="rounded-xl overflow-hidden relative h-40 shadow-md"
-          >
+          <Link to={`/detalle/Helado de piña`} key={index}>
+          <div className="rounded-xl overflow-hidden relative h-40 shadow-md hover:scale-105 transition-transform duration-300">
             <img
               src={receta.image}
               alt={receta.name}
@@ -137,6 +137,7 @@ export default function Recetas() {
               </span>
             </div>
           </div>
+        </Link>
         ))}
       </div>
     </div>

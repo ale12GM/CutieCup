@@ -5,6 +5,9 @@ import Create_Account from "./components/Create_Account.jsx";
 import Categorias from "./pages/CategoriasRecetas"; // asegúrate de que la ruta sea correcta
 import CategoriasRecetas from "./pages/Recetas";
 import Recetas from "./pages/Recetas"
+import Heladopiña from './components/helados/TarjetaHeladoPiña';
+
+
 export default function App() {
  return (
     <Routes>
@@ -13,6 +16,8 @@ export default function App() {
        <Route path="/Categorias" element={<Layout><Categorias /></Layout>} />
        <Route path="/Recetas" element={<Layout><CategoriasRecetas /></Layout>} />
        <Route path="/categorias/:nombre" element={<Layout><Recetas /></Layout>} />
+       <Route path="/detalle/Helado de piña" element={<Layout><Heladopiña /></Layout>} />
+
      </Routes>      
 
 
