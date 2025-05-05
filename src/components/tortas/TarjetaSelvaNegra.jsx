@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import torta from "../assets/selvanegra.svg";
+import torta from "../../assets/recetasdetortas/selvanegra.svg";
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 
