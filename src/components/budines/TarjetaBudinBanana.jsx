@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import budin from "../../assets/recetadebudines/budinbanana.svg";
-import { useParams } from 'react-router-dom';
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 
@@ -11,14 +10,8 @@ const content = {
 };
 
 export default function RecetaCard() {
-  const { nombre } = useParams();
   const [activeTab, setActiveTab] = useState("Descripción");
   const printRef = useRef();
-
-
-  if (nombre !== "tarjeta-budin-banana") {
-    return <div className="p-10 text-center text-red-500 font-bold text-xl">Receta no encontrada</div>;
-  }
 
   const handlePrint = () => {
     const printContent = printRef.current.innerHTML;
@@ -43,8 +36,12 @@ export default function RecetaCard() {
   };
 
   return (
+    
     <div className="min-h-screen flex items-center justify-center bg-white flex-col sm:flex-row gap-4 p-4">
+     
+     
       <div className="p-6 font-['Orelega_One'] text-[#A9746E] text-center">
+        
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
           Budín de Banana <br className="block sm:hidden" />
           <span className="hidden sm:inline">(Banana Bread)</span>
@@ -79,6 +76,7 @@ export default function RecetaCard() {
           </div>
         </div>
 
+
         <button
           onClick={handlePrint}
           className="mt-6 bg-[#FFA79C] hover:bg-[#ffa79c]/80 text-white font-bold py-2 rounded-full"
@@ -89,6 +87,7 @@ export default function RecetaCard() {
 
       {/* Contenido oculto para imprimir */}
       <div className="hidden" ref={printRef}>
+        
         <h1>Budín de Banana</h1>
         <h2>Ingredientes:</h2>
         <pre>{content["Ingredientes"]}</pre>

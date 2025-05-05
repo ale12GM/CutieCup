@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import flan from "../assets/flanquinoa.svg"; // Asegúrate de tener esta imagen
+import flan from "../../assets/recetasdeflan/flanleche.svg"; // Asegúrate de tener esta imagen
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 

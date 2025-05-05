@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import helado from "../assets/heladocanela.svg"; // Asegurate de tener esta imagen
+import helado from "../../assets/recetasdehelado/heladocanela.svg"; // Asegurate de tener esta imagen
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 

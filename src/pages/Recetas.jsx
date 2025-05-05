@@ -2,8 +2,6 @@
 
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-
 
 import budinB from "../assets/imagesRecetas/budinBanana.jpg";
 import budinC from "../assets/imagesRecetas/budinChocolate.jpg";
@@ -48,64 +46,65 @@ import heladoM from "../assets/ImagesRecetas/heladoMenta.jpg";
 import heladoMM from "../assets/ImagesRecetas/heladoMora.jpg";
 import heladoP from "../assets/ImagesRecetas/heladoPiña.jpg";
 
-
+import { Link } from "react-router-dom";
 
 // Lista de recetas por categoría
 const recetasPorCategoria = {
   budines: [
-    { name: "Budín de Banana", image: budinB },
-    { name: "Budín de Chocolate", image: budinC },
-    { name: "Budín de Frutos Rojos", image: budinF },
-    { name: "Budín de Limón", image: budinL },
-    { name: "Budín de Manzana", image: budinM },
-    { name: "Budín de Naranja", image: budinN },
+    { name: "Budín de Banana", image: budinB, ruta:"budinbanana"},
+    { name: "Budín de Chocolate", image: budinC, ruta: "budinchocolate"},
+    { name: "Budín de Frutos Rojos", image: budinF, ruta: "budinfrutosrojos"},
+    { name: "Budín de Limón", image: budinL, ruta:"budinlimon"},
+    { name: "Budín de Manzana", image: budinM, ruta: "budinmanzana"},
+    { name: "Budín de Naranja", image: budinN, ruta: "budinnaranja"},
   ],
   // Aquí puedes añadir más categorías después (tortas, cupcakes, etc.)
   tortas: [
-    { name: "Torta de Chocolate", image: tortaC },
-    { name: "Torta de Frambueza", image: tortaF },
-    { name: "Torta de Limon", image: tortaL },
-    { name: "Torta Mokka", image: tortaM },
-    { name: "Torta de Vainilla", image: tortaV },
-    { name: "Torta Selva Negra", image: tortaS },
+    { name: "Selva Negra", image: tortaS, ruta: "selvanegra" },
+    { name: "Torta de Chocolate", image: tortaC, ruta: "tortachocolate" },
+    { name: "Torta de Frambuesa", image: tortaF, ruta: "tortaframbuesa" },
+    { name: "Torta de Limón", image: tortaL, ruta: "tortalimon" },
+    { name: "Torta Mokka", image: tortaM, ruta: "tortamokka" },
+    { name: "Torta de Vainilla", image: tortaV, ruta: "tortavainilla" },
   ],
   cupcakes: [
-    { name: "Cupcake de Café", image: cupcakeC },
-    { name: "Cupcake de Chocolate", image: cupcakeCC },
-    { name: "Cupcake de Limón", image: cupcakeL },
-    { name: "Cupcake Red Velvet", image: cupcakeR },
-    { name: "Cupcake de Zanahoria", image: cupcakeZ },
-    { name: "Cupcake de Nuez", image: cupcakeN },
+    { name: "Cupcakes de Café", image: cupcakeC, ruta: "cupcakescafe" },
+    { name: "Cupcakes de Chocolate", image: cupcakeCC, ruta: "cupcakeschocolate" },
+    { name: "Cupcakes de Limón", image: cupcakeL, ruta: "cupcakeslimon" },
+    { name: "Cupcakes de Nuez", image: cupcakeN, ruta: "cupcakesnuex" },
+    { name: "Cupcakes Red Velvet", image: cupcakeR, ruta: "cupcakesredvelvet" },
+    { name: "Cupcakes de Zanahoria", image: cupcakeZ, ruta: "cupcakeszanahoria" },
   ],
   galletas: [
-    { name: "Galleta de Almendras", image: galletaA },
-    { name: "Galleta con Chispas", image: galletaC },
-    { name: "Galleta de Jengibre", image: galletaJ },
-    { name: "Galleta de Maicena", image: galletaM },
-    { name: "Galleta Rellena con Nutella", image: galletaR },
-    { name: "Galleta de Chocolate", image: galletaCC },
+    { name: "Galleta de Almendras", image: galletaA, ruta: "galletasalmendra" },
+    { name: "Galleta con Chispas", image: galletaC, ruta: "galletaschispas" },
+    { name: "Galleta de Jengibre", image: galletaJ, ruta: "galletasjengibre" },
+    { name: "Galleta de Maicena", image: galletaM, ruta: "galletasmaicena" },
+    { name: "Galleta Rellena con Nutella", image: galletaR, ruta: "galletasnutella" },
+    { name: "Galleta de Chocolate", image: galletaCC, ruta: "galletaschocolate" },
   ],
-  flanes: [
-    { name: "Flan de Avena", image: flanA },
-    { name: "Flan de Chocolate", image: flanC },
-    { name: "Flan de Frutilla", image: flanF },
-    { name: "Flan de Leche", image: flanL },
-    { name: "Flan de Plátano", image: flanP },
-    { name: "Flan de Quinoa", image: flanQ },
+  
+  flanes :[
+    { name: "Flan de Leche", image: flanL, ruta: "flanleche" },
+    { name: "Flan de Avena", image: flanA, ruta: "flanavena" },
+    { name: "Flan de Chocolate", image: flanC, ruta: "flanchocolate" },
+    { name: "Flan de Frutilla", image: flanF, ruta: "flanfrutilla" },
+    { name: "Flan de Quinoa", image: flanQ, ruta: "flanquinoa" },
+    { name: "Flan de Plátano", image: flanP, ruta: "flanplatano" },
   ],
-  helados: [
-    { name: "Helado de Canela", image: heladoC },
-    { name: "Helado de Chicle", image: heladoCC },
-    { name: "Helado de Frutilla", image: heladoF },
-    { name: "Helado de Menta", image: heladoM },
-    { name: "Helado de Mora", image: heladoMM },
-    { name: "Helado de Piña", image: heladoP },
+  helados : [
+    { name: "Helado de Canela", image: heladoC, ruta: "heladocanela" },
+    { name: "Helado de Chicle", image: heladoCC, ruta: "heladochicle" },
+    { name: "Helado de Frutilla", image: heladoF, ruta: "heladofrutilla" },
+    { name: "Helado de Menta", image: heladoM, ruta: "heladomenta" },
+    { name: "Helado de Mora", image: heladoMM, ruta: "heladomora" },
+    { name: "Helado de Piña", image: heladoP, ruta: "heladopiña" },
   ],
   
 };
 
 export default function Recetas() {
-  const { nombre } = useParams(); // por ejemplo: "budines"
+  const { nombre } = useParams(); // "budines" o alguna otra categoría
 
   const recetas = recetasPorCategoria[nombre.toLowerCase()];
 
@@ -118,26 +117,37 @@ export default function Recetas() {
   }
 
   return (
-    <div className="p-12 bg-white min-h-screen">
+    <div className="p-12 bg-white font-['Orelega_One']">
+      <div className=" -translate-y-1/2 flex gap-2">
+
+      <Link to="/categorias" className="rounded-full py-2 px-4 bg-[#fad1c3] hover:bg-[#fad1c3]/80 text-[#ffff] font-semibold transition duration-300">← Volver atrás</Link>
+
+      </div>
       <h1 className="text-2xl font-bold text-[#8c5a5a] mb-10 capitalize">
         Recetas de {nombre}
+        
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {recetas.map((receta, index) => (
-          <Link to={`/detalle/Helado de piña`} key={index}>
-          <div className="rounded-xl overflow-hidden relative h-40 shadow-md hover:scale-105 transition-transform duration-300">
-            <img
-              src={receta.image}
-              alt={receta.name}
-              className="w-full h-full object-cover opacity-60"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white font-bold text-xl drop-shadow-md">
-                {receta.name}
-              </span>
-            </div>
+          <div
+            key={index}
+            className="rounded-xl overflow-hidden relative h-40 shadow-md"
+          >
+            <Link to={`/receta/${receta.ruta}`}>
+              <img
+                src={receta.image}
+                alt={receta.name}
+                className="w-full h-full object-cover opacity-60"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white font-bold text-xl drop-shadow-md">
+                  {receta.name}
+                </span>
+              </div>
+            </Link>
           </div>
-        </Link>
         ))}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import cupcakes from "../assets/cupcakeschocolate.svg";
+import cupcakes from "../../assets/recetascupcakes/cupcakeschocolate.svg";
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 

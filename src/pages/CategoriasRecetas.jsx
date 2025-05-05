@@ -27,11 +27,11 @@ const categories = [
 
 export default function CategoriasDeRecetas() {
   return (
-    <div className="p-12 bg-white min-h-screen">
+    <div className="p-12 bg-white font-['Orelega_One']">
       <h1 className="text-2xl font-bold text-[#8c5a5a] mb-10">
         Categorías de recetas
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 font-['Orelega_One']0">
       {categories.map((cat, index) => (
         <Link to={`/categorias/${cat.name.toLowerCase()}`} key={index}>
           <div className="rounded-xl overflow-hidden relative h-40 shadow-md hover:scale-105 transition-transform duration-300">
