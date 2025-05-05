@@ -29,7 +29,7 @@ export default function Login() {
       setMensaje("❌ Usuario o contraseña incorrectos");
     } else {
       setMensaje("✅ Acceso concedido. Redirigiendo...");
-      setTimeout(() => navigate("CategoriasResetas"), 1000);
+      setTimeout(() => navigate("Categorias"), 1000);
     }
   };
 
