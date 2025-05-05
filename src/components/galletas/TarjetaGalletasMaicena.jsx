@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
-import galletas from "../../assets/recetasdegalletas/galletasalmendra.svg";
+import galletas from "../../assets/recetasdegalletas/galletasmaicena.svg"; 
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 
 const content = {
-  Descripción: `Las galletas de almendra son dulces crujientes por fuera y ligeramente suaves por dentro. Se caracterizan por su delicado sabor a almendra y pueden prepararse con harina de almendra o almendras molidas. Son perfectas para acompañar un café o té, y también se pueden bañar en chocolate.`,
-  Ingredientes: `- 1 taza de harina común\n- 1/2 taza de harina de almendras\n- 1/2 taza de azúcar\n- 100 g de manteca a temperatura ambiente\n- 1 huevo\n- 1 cdita de esencia de vainilla\n- 1/2 cdita de polvo de hornear\n- Almendras laminadas (opcional, para decorar)`,
-  Pasos: `1. Precalentar el horno a 180°C.\n2. Batir la manteca con el azúcar hasta que esté cremosa.\n3. Agregar el huevo y la esencia de vainilla. Mezclar.\n4. Incorporar la harina común, la de almendras y el polvo de hornear. Unir sin amasar.\n5. Formar bolitas y colocarlas en una bandeja con papel manteca. Aplastar ligeramente.\n6. Decorar con almendras laminadas si se desea.\n7. Hornear durante 12 a 15 minutos o hasta que estén doradas en los bordes.\n8. Dejar enfriar antes de servir.`,
+  Descripción: `Las galletas de maicena son suaves, ligeras y se deshacen en la boca. Tienen un sabor delicado y una textura arenosa característica gracias a la fécula de maíz (maicena). Son ideales para acompañar con dulce de leche o té, y muy populares en celebraciones y meriendas.`,
+  Ingredientes: `- 200 g de manteca a temperatura ambiente\n- 3/4 taza de azúcar impalpable\n- 2 yemas de huevo\n- 1 cdita de esencia de vainilla\n- 1 y 1/2 taza de maicena (fécula de maíz)\n- 1/2 taza de harina común\n- Ralladura de 1 limón (opcional)\n- Dulce de leche y coco rallado para rellenar y decorar (opcional)`,
+  Pasos: `1. Batir la manteca con el azúcar impalpable hasta lograr una crema.\n2. Agregar las yemas, la vainilla y la ralladura de limón. Mezclar bien.\n3. Incorporar la maicena y la harina tamizadas. Formar una masa suave.\n4. Estirar la masa sobre una superficie enharinada y cortar con moldes.\n5. Colocar en una bandeja con papel manteca.\n6. Hornear a 170°C por 10-12 minutos. No deben dorarse.\n7. Dejar enfriar y unir de a dos con dulce de leche.\n8. Pasar los bordes por coco rallado si se desea.`,
 };
 
 export default function RecetaCard() {
@@ -19,7 +19,7 @@ export default function RecetaCard() {
     newWindow.document.write(`
       <html>
         <head>
-          <title>Galletas de Almendra</title>
+          <title>Galletas de Maicena</title>
           <style>
             body { font-family: sans-serif; padding: 20px; color: #333; }
             h1 { color: #A9746E; }
@@ -39,11 +39,11 @@ export default function RecetaCard() {
     <div className="min-h-screen flex items-center justify-center bg-white flex-col sm:flex-row gap-4 p-4">
       <div className="p-6 font-['Orelega_One'] text-[#A9746E] text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          Galletas de Almendra
+          Galletas de Maicena
         </h1>
         <img
           src={galletas}
-          alt="Galletas de Almendra"
+          alt="Galletas de Maicena"
           className="mx-auto w-full max-w-xs sm:max-w-sm object-contain"
         />
       </div>
@@ -78,7 +78,7 @@ export default function RecetaCard() {
         </button>
       </div>
       <div className="hidden" ref={printRef}>
-        <h1>Galletas de Almendra</h1>
+        <h1>Galletas de Maicena</h1>
         <h2>Ingredientes:</h2>
         <pre>{content["Ingredientes"]}</pre>
         <h2>Pasos:</h2>
