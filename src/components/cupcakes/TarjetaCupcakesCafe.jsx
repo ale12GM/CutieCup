@@ -1,24 +1,16 @@
 import React, { useState, useRef } from "react";
-import budin from "../../assets/recetadebudines/budinbanana.svg";
-import { useParams } from 'react-router-dom';
+import cupcake from "../../assets/recetascupcakes/cupcakescafe.svg";
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
-
 const content = {
-  Descripción: `El budín de banana es un bizcocho húmedo y esponjoso, ideal para aprovechar bananas maduras. Su textura suave y sabor dulce lo hacen perfecto para acompañar el desayuno o la merienda. Se puede enriquecer con nueces, chips de chocolate o canela para un toque extra.`,
-  Ingredientes: `- 2 a 3 bananas maduras\n- 2 huevos\n- 1/2 taza de azúcar\n- 1/3 taza de aceite o manteca derretida\n- 1 y 1/2 taza de harina leudante (o harina común + polvo de hornear)\n- 1 cdita de esencia de vainilla\n- Opcional: nueces, chips de chocolate, canela`,
-  Pasos: `1. Precalentar el horno a 180°C.\n2. Pisá las bananas con un tenedor en un bowl.\n3. Agregá huevos, azúcar, aceite y vainilla. Mezclá bien.\n4. Incorporá la harina (y polvo de hornear si es común). Mezclá sin batir de más.\n5. Agregá nueces o chips si querés.\n6. Volcá en un molde enmantecado y enharinado.\n7. Horneá durante 40-50 minutos o hasta que al pinchar con un palillo salga seco.`,
+  Descripción: `Los cupcakes de café combinan el sabor suave del bizcocho con el aroma y gusto intenso del café. Son ideales para los amantes del café y una opción elegante para cualquier merienda o evento.`,
+  Ingredientes: `- 1 taza de harina leudante\n- 1/2 taza de azúcar\n- 2 huevos\n- 1/2 taza de manteca derretida\n- 1/4 taza de café fuerte o espresso\n- 1 cdita de esencia de vainilla\n- Opcional: chips de chocolate o nueces`,
+  Pasos: `1. Precalentar el horno a 180°C y preparar pirotines en una bandeja para cupcakes.\n2. Batir los huevos con el azúcar hasta espumar.\n3. Agregar la manteca, el café y la vainilla.\n4. Incorporar la harina y mezclar hasta integrar.\n5. Verter en los pirotines, llenando hasta 3/4.\n6. Hornear por 20-25 minutos o hasta que al pinchar salga seco.\n7. Dejar enfriar y decorar si se desea (frosting de café, crema, etc.).`,
 };
 
 export default function RecetaCard() {
-  const { nombre } = useParams();
   const [activeTab, setActiveTab] = useState("Descripción");
   const printRef = useRef();
-
-
-  if (nombre !== "tarjeta-budin-banana") {
-    return <div className="p-10 text-center text-red-500 font-bold text-xl">Receta no encontrada</div>;
-  }
 
   const handlePrint = () => {
     const printContent = printRef.current.innerHTML;
@@ -26,7 +18,7 @@ export default function RecetaCard() {
     newWindow.document.write(`
       <html>
         <head>
-          <title>Budín de Banana</title>
+          <title>Cupcakes de Café</title>
           <style>
             body { font-family: sans-serif; padding: 20px; color: #333; }
             h1 { color: #A9746E; }
@@ -46,12 +38,11 @@ export default function RecetaCard() {
     <div className="min-h-screen flex items-center justify-center bg-white flex-col sm:flex-row gap-4 p-4">
       <div className="p-6 font-['Orelega_One'] text-[#A9746E] text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          Budín de Banana <br className="block sm:hidden" />
-          <span className="hidden sm:inline">(Banana Bread)</span>
+          Cupcakes de Café
         </h1>
         <img
-          src={budin}
-          alt="Budín de Banana"
+          src={cupcake}
+          alt="Cupcakes de Café"
           className="mx-auto w-full max-w-md sm:max-w-lg object-contain"
         />
       </div>
@@ -89,7 +80,7 @@ export default function RecetaCard() {
 
       {/* Contenido oculto para imprimir */}
       <div className="hidden" ref={printRef}>
-        <h1>Budín de Banana</h1>
+        <h1>Cupcakes de Café</h1>
         <h2>Ingredientes:</h2>
         <pre>{content["Ingredientes"]}</pre>
         <h2>Pasos:</h2>

@@ -1,24 +1,17 @@
 import React, { useState, useRef } from "react";
-import budin from "../../assets/recetadebudines/budinbanana.svg";
-import { useParams } from 'react-router-dom';
+import cupcake from "../../assets/recetascupcakes/cupcakesredvelvet.svg"; // Imagen Red Velvet
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 
 const content = {
-  Descripción: `El budín de banana es un bizcocho húmedo y esponjoso, ideal para aprovechar bananas maduras. Su textura suave y sabor dulce lo hacen perfecto para acompañar el desayuno o la merienda. Se puede enriquecer con nueces, chips de chocolate o canela para un toque extra.`,
-  Ingredientes: `- 2 a 3 bananas maduras\n- 2 huevos\n- 1/2 taza de azúcar\n- 1/3 taza de aceite o manteca derretida\n- 1 y 1/2 taza de harina leudante (o harina común + polvo de hornear)\n- 1 cdita de esencia de vainilla\n- Opcional: nueces, chips de chocolate, canela`,
-  Pasos: `1. Precalentar el horno a 180°C.\n2. Pisá las bananas con un tenedor en un bowl.\n3. Agregá huevos, azúcar, aceite y vainilla. Mezclá bien.\n4. Incorporá la harina (y polvo de hornear si es común). Mezclá sin batir de más.\n5. Agregá nueces o chips si querés.\n6. Volcá en un molde enmantecado y enharinado.\n7. Horneá durante 40-50 minutos o hasta que al pinchar con un palillo salga seco.`,
+  Descripción: `Los cupcakes Red Velvet son suaves, esponjosos y tienen un sabor distintivo con un toque de cacao y vainilla. Su color rojo vibrante los hace irresistibles, y suelen estar cubiertos con un glaseado de queso crema que complementa perfectamente su sabor.`,
+  Ingredientes: `- 1 taza de harina leudante\n- 3/4 taza de azúcar\n- 1 huevo\n- 1/2 taza de leche\n- 1/4 taza de aceite\n- 1 cdita de vinagre blanco\n- 1 cdita de cacao en polvo\n- 1 cdita de esencia de vainilla\n- 1/2 cdita de colorante rojo en gel\n- 1/2 cdita de bicarbonato de sodio`,
+  Pasos: `1. Precalentar el horno a 180°C y preparar los pirotines en una bandeja.\n2. En un bowl, mezclar el azúcar con el huevo, aceite y leche.\n3. Agregar la vainilla, el cacao, el colorante y el vinagre.\n4. Incorporar la harina y el bicarbonato y mezclar suavemente.\n5. Rellenar los moldes hasta 3/4 de su capacidad.\n6. Hornear durante 20-22 minutos o hasta que al pinchar salga seco.\n7. Dejar enfriar y decorar con frosting de queso crema.`,
 };
 
 export default function RecetaCard() {
-  const { nombre } = useParams();
   const [activeTab, setActiveTab] = useState("Descripción");
   const printRef = useRef();
-
-
-  if (nombre !== "tarjeta-budin-banana") {
-    return <div className="p-10 text-center text-red-500 font-bold text-xl">Receta no encontrada</div>;
-  }
 
   const handlePrint = () => {
     const printContent = printRef.current.innerHTML;
@@ -26,7 +19,7 @@ export default function RecetaCard() {
     newWindow.document.write(`
       <html>
         <head>
-          <title>Budín de Banana</title>
+          <title>Cupcakes Red Velvet</title>
           <style>
             body { font-family: sans-serif; padding: 20px; color: #333; }
             h1 { color: #A9746E; }
@@ -46,12 +39,11 @@ export default function RecetaCard() {
     <div className="min-h-screen flex items-center justify-center bg-white flex-col sm:flex-row gap-4 p-4">
       <div className="p-6 font-['Orelega_One'] text-[#A9746E] text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          Budín de Banana <br className="block sm:hidden" />
-          <span className="hidden sm:inline">(Banana Bread)</span>
+          Cupcakes Red Velvet
         </h1>
         <img
-          src={budin}
-          alt="Budín de Banana"
+          src={cupcake}
+          alt="Cupcakes Red Velvet"
           className="mx-auto w-full max-w-md sm:max-w-lg object-contain"
         />
       </div>
@@ -86,10 +78,8 @@ export default function RecetaCard() {
           Imprimir
         </button>
       </div>
-
-      {/* Contenido oculto para imprimir */}
       <div className="hidden" ref={printRef}>
-        <h1>Budín de Banana</h1>
+        <h1>Cupcakes Red Velvet</h1>
         <h2>Ingredientes:</h2>
         <pre>{content["Ingredientes"]}</pre>
         <h2>Pasos:</h2>

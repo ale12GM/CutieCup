@@ -1,24 +1,17 @@
 import React, { useState, useRef } from "react";
-import budin from "../../assets/recetadebudines/budinbanana.svg";
-import { useParams } from 'react-router-dom';
+import budin from "../../assets/recetadebudines/budinfrutosrojos.svg"; // asegurate de tener esta imagen
 
 const tabs = ["Descripción", "Ingredientes", "Pasos"];
 
 const content = {
-  Descripción: `El budín de banana es un bizcocho húmedo y esponjoso, ideal para aprovechar bananas maduras. Su textura suave y sabor dulce lo hacen perfecto para acompañar el desayuno o la merienda. Se puede enriquecer con nueces, chips de chocolate o canela para un toque extra.`,
-  Ingredientes: `- 2 a 3 bananas maduras\n- 2 huevos\n- 1/2 taza de azúcar\n- 1/3 taza de aceite o manteca derretida\n- 1 y 1/2 taza de harina leudante (o harina común + polvo de hornear)\n- 1 cdita de esencia de vainilla\n- Opcional: nueces, chips de chocolate, canela`,
-  Pasos: `1. Precalentar el horno a 180°C.\n2. Pisá las bananas con un tenedor en un bowl.\n3. Agregá huevos, azúcar, aceite y vainilla. Mezclá bien.\n4. Incorporá la harina (y polvo de hornear si es común). Mezclá sin batir de más.\n5. Agregá nueces o chips si querés.\n6. Volcá en un molde enmantecado y enharinado.\n7. Horneá durante 40-50 minutos o hasta que al pinchar con un palillo salga seco.`,
+  Descripción: `El budín de frutos rojos es un bizcocho suave con un toque ácido y dulce a la vez. Perfecto para el desayuno o la merienda, combina muy bien con una taza de té o café. Podés usar frutos rojos frescos o congelados como frambuesas, arándanos y moras.`,
+  Ingredientes: `- 2 huevos\n- 1/2 taza de azúcar\n- 1/3 taza de aceite o manteca derretida\n- 1 taza de leche o yogur\n- 1 y 1/2 taza de harina leudante\n- 1 cdita de esencia de vainilla\n- 1 taza de frutos rojos (frescos o congelados)\n- Opcional: ralladura de limón`,
+  Pasos: `1. Precalentar el horno a 180°C.\n2. Batí los huevos con el azúcar hasta integrar.\n3. Agregá el aceite, la leche (o yogur) y la vainilla.\n4. Incorporá la harina tamizada y mezclá bien.\n5. Añadí los frutos rojos con movimientos suaves.\n6. Volcá en un molde enmantecado y enharinado.\n7. Horneá por 40-45 minutos o hasta que al pinchar salga limpio.`,
 };
 
 export default function RecetaCard() {
-  const { nombre } = useParams();
   const [activeTab, setActiveTab] = useState("Descripción");
   const printRef = useRef();
-
-
-  if (nombre !== "tarjeta-budin-banana") {
-    return <div className="p-10 text-center text-red-500 font-bold text-xl">Receta no encontrada</div>;
-  }
 
   const handlePrint = () => {
     const printContent = printRef.current.innerHTML;
@@ -26,7 +19,7 @@ export default function RecetaCard() {
     newWindow.document.write(`
       <html>
         <head>
-          <title>Budín de Banana</title>
+          <title>Budín de Frutos Rojos</title>
           <style>
             body { font-family: sans-serif; padding: 20px; color: #333; }
             h1 { color: #A9746E; }
@@ -46,12 +39,11 @@ export default function RecetaCard() {
     <div className="min-h-screen flex items-center justify-center bg-white flex-col sm:flex-row gap-4 p-4">
       <div className="p-6 font-['Orelega_One'] text-[#A9746E] text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-          Budín de Banana <br className="block sm:hidden" />
-          <span className="hidden sm:inline">(Banana Bread)</span>
+          Budín de Frutos Rojos
         </h1>
         <img
           src={budin}
-          alt="Budín de Banana"
+          alt="Budín de Frutos Rojos"
           className="mx-auto w-full max-w-md sm:max-w-lg object-contain"
         />
       </div>
@@ -89,7 +81,7 @@ export default function RecetaCard() {
 
       {/* Contenido oculto para imprimir */}
       <div className="hidden" ref={printRef}>
-        <h1>Budín de Banana</h1>
+        <h1>Budín de Frutos Rojos</h1>
         <h2>Ingredientes:</h2>
         <pre>{content["Ingredientes"]}</pre>
         <h2>Pasos:</h2>
